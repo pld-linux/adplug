@@ -1,7 +1,3 @@
-#
-# TODO:
-# - why libbinio-static?
-#
 Summary:	AdLib sound player library
 Summary(pl):	Biblioteka odtwarzacza d¼wiêku AdLib
 Name:		adplug
@@ -13,7 +9,6 @@ Source0:	http://dl.sourceforge.net/adplug/%{name}-%{version}.tar.bz2
 # Source0-md5:	95d62805cff551bed84298e737a26df9
 URL:		http://adplug.sourceforge.net/
 BuildRequires:	libbinio-devel >= 1.1
-BuildRequires:	libbinio-static >= 1.1
 Requires:	libbinio >= 1.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
