@@ -1,15 +1,19 @@
 Summary:	AdLib sound player library
 Summary(pl):	Biblioteka odtwarzacza d¼wiêku AdLib
 Name:		adplug
-Version:	1.5.1
+Version:	2.0
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/adplug/%{name}-%{version}.tar.bz2
-# Source0-md5:	95d62805cff551bed84298e737a26df9
+# Source0-md5:	48c1bb7c8618c45596d79767dec2e962
+Patch0:		%{name}-info.patch
 URL:		http://adplug.sourceforge.net/
-BuildRequires:	libbinio-devel >= 1.1
-Requires:	libbinio >= 1.1
+BuildRequires:	libbinio-devel >= 1.4
+BuildRequires:	libstdc++-devel
+BuildRequires:	pkgconfig
+BuildRequires:	texinfo
+Requires:	libbinio >= 1.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,6 +35,7 @@ Summary:	Header files for AdPlug library
 Summary(pl):	Pliki nag³ówkowe biblioteki AdPlug.
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libbinio-devel >= 1.4
 
 %description devel
 This is the package containing the header files for AdPlug library.
@@ -52,6 +57,7 @@ Statyczna biblioteka AdPlug.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure 
@@ -63,26 +69,37 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# for system-wide adplugdb database
+install -d $RPM_BUILD_ROOT/var/lib/adplug
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
+%post devel
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir %{_infodir} >/dev/null 2>&1
+
+%postun devel
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir %{_infodir} >/dev/null 2>&1
+
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README TODO
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
-%{_infodir}/*.info*
-%{_mandir}/man1/*
+%doc AUTHORS BUGS ChangeLog NEWS README TODO
+%attr(755,root,root) %{_bindir}/adplugdb
+%attr(755,root,root) %{_libdir}/libadplug-*.so.*.*.*
+%{_mandir}/man1/adplugdb.1*
+%dir /var/lib/adplug
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libadplug.so
+%{_libdir}/libadplug.la
 %{_includedir}/%{name}
+%{_pkgconfigdir}/adplug.pc
+%{_infodir}/libadplug.info*
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libadplug.a
