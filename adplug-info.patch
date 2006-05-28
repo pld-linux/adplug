@@ -1,0 +1,14 @@
+--- adplug-2.0/doc/libadplug.texi.orig	2006-05-04 07:26:37.000000000 +0200
++++ adplug-2.0/doc/libadplug.texi	2006-05-28 11:21:49.185508000 +0200
+@@ -25,9 +25,9 @@
+ @end quotation
+ @end copying
+ 
+-@dircategory Software Libraries
++@dircategory Libraries:
+ @direntry
+-* AdPlug Core Library: (libadplug).     AdPlug Core Library @value{VERSION}
++* AdPlug Core Library: (libadplug).	AdPlug Core Library @value{VERSION}
+ @end direntry
+ 
+ @titlepage
