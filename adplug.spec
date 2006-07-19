@@ -1,12 +1,12 @@
 Summary:	AdLib sound player library
 Summary(pl):	Biblioteka odtwarzacza d¼wiêku AdLib
 Name:		adplug
-Version:	2.0
+Version:	2.0.1
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/adplug/%{name}-%{version}.tar.bz2
-# Source0-md5:	48c1bb7c8618c45596d79767dec2e962
+# Source0-md5:	b3e469e3437d29a79a1ab5febe220f17
 Patch0:		%{name}-info.patch
 URL:		http://adplug.sourceforge.net/
 BuildRequires:	libbinio-devel >= 1.4
