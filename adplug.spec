@@ -1,5 +1,5 @@
 Summary:	AdLib sound player library
-Summary(pl.UTF-8):   Biblioteka odtwarzacza dźwięku AdLib
+Summary(pl.UTF-8):	Biblioteka odtwarzacza dźwięku AdLib
 Name:		adplug
 Version:	2.0.1
 Release:	1
@@ -32,7 +32,7 @@ odtwarzania nie jest wymagany układ OPL2.
 
 %package devel
 Summary:	Header files for AdPlug library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki AdPlug.
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki AdPlug.
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libbinio-devel >= 1.4
@@ -45,7 +45,7 @@ Ten pakiet zawiera pliki nagłówkowe biblioteki AdPlug.
 
 %package static
 Summary:	Static AdPlug library
-Summary(pl.UTF-8):   Statyczna biblioteka AdPlug
+Summary(pl.UTF-8):	Statyczna biblioteka AdPlug
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
