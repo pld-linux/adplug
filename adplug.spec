@@ -1,5 +1,5 @@
 Summary:	AdLib sound player library
-Summary(pl):	Biblioteka odtwarzacza dºwiÍku AdLib
+Summary(pl.UTF-8):   Biblioteka odtwarzacza d≈∫wiƒôku AdLib
 Name:		adplug
 Version:	2.0.1
 Release:	1
@@ -23,16 +23,16 @@ originally created for the AdLib (OPL2) audio board, on top of an OPL2
 emulator or by using the real hardware. No OPL2 chip is required for
 playback.
 
-%description -l pl
-AdPlug to wolnodostÍpna, wieloplatformowa, niezaleøna od sprzÍtu
-biblioteka odtwarzacza dºwiÍku AdLib, napisana g≥Ûwnie w C++. AdPlug
-odtwarza dane dºwiÍkowe stworzone pierwotnie dla karty dºwiÍkowej
-AdLib (OPL2) przy uøyciu emulatora OPL2 lub prawdziwego sprzÍtu. Do
-odtwarzania nie jest wymagany uk≥ad OPL2.
+%description -l pl.UTF-8
+AdPlug to wolnodostƒôpna, wieloplatformowa, niezale≈ºna od sprzƒôtu
+biblioteka odtwarzacza d≈∫wiƒôku AdLib, napisana g≈Ç√≥wnie w C++. AdPlug
+odtwarza dane d≈∫wiƒôkowe stworzone pierwotnie dla karty d≈∫wiƒôkowej
+AdLib (OPL2) przy u≈ºyciu emulatora OPL2 lub prawdziwego sprzƒôtu. Do
+odtwarzania nie jest wymagany uk≈Çad OPL2.
 
 %package devel
 Summary:	Header files for AdPlug library
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki AdPlug.
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki AdPlug.
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libbinio-devel >= 1.4
@@ -40,19 +40,19 @@ Requires:	libbinio-devel >= 1.4
 %description devel
 This is the package containing the header files for AdPlug library.
 
-%description devel -l pl
-Ten pakiet zawiera pliki nag≥Ûwkowe biblioteki AdPlug.
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nag≈Ç√≥wkowe biblioteki AdPlug.
 
 %package static
 Summary:	Static AdPlug library
-Summary(pl):	Statyczna biblioteka AdPlug
+Summary(pl.UTF-8):   Statyczna biblioteka AdPlug
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
 %description static
 Static AdPlug library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka AdPlug.
 
 %prep
