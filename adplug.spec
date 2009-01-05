@@ -9,9 +9,13 @@ Source0:	http://dl.sourceforge.net/adplug/%{name}-%{version}.tar.bz2
 # Source0-md5:	bc75cf9d1d2241e287e2eb80b84bd2cd
 Patch0:		%{name}-info.patch
 URL:		http://adplug.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	libbinio-devel >= 1.4
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	sed >= 4.0
 BuildRequires:	texinfo
 Requires:	libbinio >= 1.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -25,10 +29,10 @@ playback.
 
 %description -l pl.UTF-8
 AdPlug to wolnodostępna, wieloplatformowa, niezależna od sprzętu
-biblioteka odtwarzacza dźwięku AdLib, napisana głównie w C++. AdPlug
-odtwarza dane dźwiękowe stworzone pierwotnie dla karty dźwiękowej
-AdLib (OPL2) przy użyciu emulatora OPL2 lub prawdziwego sprzętu. Do
-odtwarzania nie jest wymagany układ OPL2.
+biblioteka odtwarzacza dźwięku AdLib, napisana głównie w C++.
+AdPlug odtwarza dane dźwiękowe stworzone pierwotnie dla karty
+dźwiękowej AdLib (OPL2) przy użyciu emulatora OPL2 lub prawdziwego
+sprzętu. Do odtwarzania nie jest wymagany układ OPL2.
 
 %package devel
 Summary:	Header files for AdPlug library
@@ -58,9 +62,14 @@ Statyczna biblioteka AdPlug.
 %prep
 %setup -q
 %patch0 -p1
+%{__sed} -i 's@<string>@<string.h>@' src/player.h
 
 %build
-%configure 
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
+%configure
 %{__make}
 
 %install
@@ -78,10 +87,10 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%post devel	-p	/sbin/postshell
+%post devel	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun devel	-p	/sbin/postshell
+%postun devel	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files
