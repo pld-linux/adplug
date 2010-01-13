@@ -98,6 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS BUGS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/adplugdb
 %attr(755,root,root) %{_libdir}/libadplug-*.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libadplug-*.so.?
 %{_mandir}/man1/adplugdb.1*
 %dir /var/lib/adplug
 
