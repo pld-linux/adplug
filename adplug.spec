@@ -1,12 +1,12 @@
 Summary:	AdLib sound player library
 Summary(pl.UTF-8):	Biblioteka odtwarzacza dźwięku AdLib
 Name:		adplug
-Version:	2.1
+Version:	2.2
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/adplug/%{name}-%{version}.tar.bz2
-# Source0-md5:	bc75cf9d1d2241e287e2eb80b84bd2cd
+Source0:	http://downloads.sourceforge.net/adplug/%{name}-%{version}.tar.bz2
+# Source0-md5:	1aaf200f6558e93f89600cd4aea3b01f
 Patch0:		%{name}-info.patch
 URL:		http://adplug.sourceforge.net/
 BuildRequires:	autoconf
@@ -29,10 +29,10 @@ playback.
 
 %description -l pl.UTF-8
 AdPlug to wolnodostępna, wieloplatformowa, niezależna od sprzętu
-biblioteka odtwarzacza dźwięku AdLib, napisana głównie w C++.
-AdPlug odtwarza dane dźwiękowe stworzone pierwotnie dla karty
-dźwiękowej AdLib (OPL2) przy użyciu emulatora OPL2 lub prawdziwego
-sprzętu. Do odtwarzania nie jest wymagany układ OPL2.
+biblioteka odtwarzacza dźwięku AdLib, napisana głównie w C++. AdPlug
+odtwarza dane dźwiękowe stworzone pierwotnie dla karty dźwiękowej
+AdLib (OPL2) przy użyciu emulatora OPL2 lub prawdziwego sprzętu. Do
+odtwarzania nie jest wymagany układ OPL2.
 
 %package devel
 Summary:	Header files for AdPlug library
