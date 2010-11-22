@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Biblioteka odtwarzacza dźwięku AdLib
 Name:		adplug
 Version:	2.2.1
 Release:	1
-License:	LGPL
+License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/adplug/%{name}-%{version}.tar.bz2
 # Source0-md5:	8f815fd5d254de0fe5df818df9d1d8af
@@ -13,7 +13,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libbinio-devel >= 1.4
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:1.5
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 BuildRequires:	texinfo
@@ -87,18 +87,18 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%post devel	-p /sbin/postshell
+%post	devel -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun devel	-p /sbin/postshell
+%postun	devel -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/adplugdb
-%attr(755,root,root) %{_libdir}/libadplug-*.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libadplug-*.so.?
+%attr(755,root,root) %{_libdir}/libadplug-2.2.1.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libadplug-2.2.1.so.0
 %{_mandir}/man1/adplugdb.1*
 %dir /var/lib/adplug
 
