@@ -1,16 +1,16 @@
 Summary:	AdLib sound player library
 Summary(pl.UTF-8):	Biblioteka odtwarzacza dźwięku AdLib
 Name:		adplug
-Version:	2.2.1
-Release:	3
+Version:	2.3.3
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://downloads.sourceforge.net/adplug/%{name}-%{version}.tar.bz2
-# Source0-md5:	8f815fd5d254de0fe5df818df9d1d8af
+Source0:	https://github.com/adplug/adplug/releases/download/adplug-%{version}/%{name}-%{version}.tar.bz2
+# Source0-md5:	35cb5005c512821ff480c10b43bba270
 Patch0:		%{name}-info.patch
-URL:		http://adplug.sourceforge.net/
-BuildRequires:	autoconf
-BuildRequires:	automake
+URL:		https://adplug.github.io
+BuildRequires:	autoconf >= 2.69
+BuildRequires:	automake >= 1:1.14
 BuildRequires:	libbinio-devel >= 1.4
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
@@ -97,8 +97,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/adplugdb
-%attr(755,root,root) %{_libdir}/libadplug-2.2.1.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libadplug-2.2.1.so.0
+%attr(755,root,root) %{_libdir}/libadplug-2.3.3.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libadplug-2.3.3.so.0
 %{_mandir}/man1/adplugdb.1*
 %dir /var/lib/adplug
 
