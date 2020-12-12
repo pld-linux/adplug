@@ -2,7 +2,7 @@ Summary:	AdLib sound player library
 Summary(pl.UTF-8):	Biblioteka odtwarzacza dźwięku AdLib
 Name:		adplug
 Version:	2.3.3
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	https://github.com/adplug/adplug/releases/download/adplug-%{version}/%{name}-%{version}.tar.bz2
@@ -81,6 +81,9 @@ rm -rf $RPM_BUILD_ROOT
 # for system-wide adplugdb database
 install -d $RPM_BUILD_ROOT/var/lib/adplug
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libadplug.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -105,8 +108,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libadplug.so
-%{_libdir}/libadplug.la
-%{_includedir}/%{name}
+%{_includedir}/adplug
 %{_pkgconfigdir}/adplug.pc
 %{_infodir}/libadplug.info*
 
